@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <select class="form-control" (change)="choice($any($event.target).value)">
+        <option>select country</option>
+        <option *ngFor="let c of countries" [value]="c.code">
+          {{ c.country }}
+        </option>
+      </select>
+      <div class="col-md-8">
+        <div [ngSwitch]="selectedCountry">
+          <div *ngSwitchCase="'ind'" class="">
+            <h4>india calling code is +91</h4>
+          </div>
+          <div *ngSwitchCase="'usa'" class="">
+            <h4>usa calling code is +001</h4>
+          </div>
+          <div *ngSwitchCase="'uk'" class="">
+            <h4>uk calling code is +44</h4>
+          </div>
+          <div *ngSwitchDefault="">
+            <h4>plz select a country</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
